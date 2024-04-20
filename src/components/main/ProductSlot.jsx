@@ -1,17 +1,14 @@
-export const ProductSlot = ({name,sprite})=>{
+import "./products.css"
+
+export const ProductSlot = ({name})=>{
     return(
-            <div class="pokemon-container">
-        
-                <header class="sprite-container">
-                    <img src={sprite} alt=""/>
-                </header>
-        
+            <div className="pokemon-container">
         
                 <ul>
-                    <li class="pokemon-name">{name.toUpperCase()}</li>
+                    <li className="pokemon-name">{name.toUpperCase()}</li>
                     
                     {
-                        <li class="type-container-container">
+                        <li className="type-container-container">
                             hola
                         </li>
                     }

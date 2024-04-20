@@ -14,3 +14,5 @@ export const categories = [
     
     
 ]
+
+/*Debes poner cada categoria como un objeto para asignarle una ID*/
