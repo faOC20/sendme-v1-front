@@ -1,0 +1,53 @@
+---
+import '@fontsource-variable/nunito';
+import Layout from '../layouts/Layout.astro';
+import {Header} from '../components/header/Header.jsx';
+import {HEADER_COLOR, MAIN_COLOR, FOOTER_COLOR} from '../assets/constants/colors.ts'
+import {Main} from "../components/main/Main"
+import { Footer } from '../components/footer/Footer';
+import { TOPOLOGY } from '../assets/images/topologyBackground';
+---
+
+<Layout title="sendme">
+	
+	<header class="header-container text-white z-30">
+		<Header/>
+	</header>
+	
+	<main class="main-container flex flex-col z-10">
+		<Main client:visible/>
+	</main>
+	
+	
+</Layout>
+
+<style define:vars={{HEADER_COLOR, MAIN_COLOR, FOOTER_COLOR, TOPOLOGY}}>
+	body{
+		font-family: 'Nunito Variable', sans-serif;
+		display: grid;
+		grid-template:
+		'header ' 130px
+		'main ' auto
+		'footer' 160px/
+		auto ; 
+		background-color: var(--HEADER_COLOR)
+	}
+	.header-container{
+		grid-area: header;
+		background-color:var(--HEADER_COLOR);
+		display: flex;
+		flex-direction: column;
+		background-image: url('https://preview.redd.it/1920x1080-topography-wallpapers-made-by-me-request-for-v0-j8m6ykh6ar1a1.jpg?width=1080&crop=smart&auto=webp&s=7eb82c2a583124b0681924c28b9b78acde098bbd')
+	}
+
+	.main-container{
+		grid-area: main;
+		background-color: var(--MAIN_COLOR);
+		min-height: 400px
+	}
+
+	.footer-container{
+		grid-area: footer;
+	}
+</style>
+
