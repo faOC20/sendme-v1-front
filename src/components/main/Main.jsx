@@ -16,6 +16,7 @@ export const Main = ()=>{
 
                <MainHeaderInfo/>
                 
+                <h1>hola</h1>
             </div>
         
         </>
