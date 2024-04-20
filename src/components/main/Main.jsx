@@ -26,6 +26,16 @@ export const Main = ()=>{
       }
     
       return (
+        <>
+            <div class="relative w-full h-60">
+            <div class="absolute w-full -top-14 z-10">
+                <MainDecoration/> 
+            </div>
+
+            <MainHeaderInfo/>
+        
+        </div>
+
         <div className="products-container">
                 {
                     results.map((data)=>(
@@ -39,7 +49,9 @@ export const Main = ()=>{
                 }
 
                 
-            </div>
+        </div>
+        </>
+       
       )
     }
 

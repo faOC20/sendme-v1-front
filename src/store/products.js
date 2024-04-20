@@ -1,15 +1,5 @@
 import { create } from "zustand";
-import { useEffect } from "react";
 
-
-
-/*const getAllProducts = async()=>(
-    fetch(URL)
-    .then(response=>response.json())
-    .then(result=>result)
-)
-
-const allProducts = await getAllProducts()*/
 
 export const useProductsStore = create((set)=>{
 
