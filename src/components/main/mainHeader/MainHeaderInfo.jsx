@@ -1,5 +1,5 @@
-import animatedLogo from '../../assets/images/sendmefondo.png'
-import { bannerInfo } from '../../assets/constants/bannerInfo'
+import animatedLogo from '../../../assets/images/sendmefondo.png'
+import { bannerInfo } from '../../../assets/constants/bannerInfo'
 import { MainInfoCreator } from './MainInfoCreator'
 
 export const MainHeaderInfo = ()=>{

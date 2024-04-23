@@ -1,10 +1,11 @@
 import { MainDecoration } from "../../assets/images/MainDecoration"
-import { MainHeaderInfo } from "./MainHeaderInfo"
+import { MainHeaderInfo } from "./mainHeader/MainHeaderInfo"
 import logo from '../../assets/images/sendmefondo.png'
 import "./products.css"
 import { useEffect } from "react"
 import { useProductsStore } from "../../store/products"
 import { ProductSlot } from "./ProductSlot"
+import { MainHeader } from "./mainHeader/MainHeader"
 
 
 export const Main = ()=>{
@@ -18,7 +19,12 @@ export const Main = ()=>{
     },[fetchProducts])
     
     if (loading) {
-        return <div>Cargando...</div>
+        return (
+          <>
+            <MainHeader/>
+            <div>Cargando...</div>
+          </>
+        )
       }
     
       if (error) {
@@ -27,14 +33,7 @@ export const Main = ()=>{
     
       return (
         <>
-            <div class="relative w-full h-60">
-            <div class="absolute w-full -top-14 z-10">
-                <MainDecoration/> 
-            </div>
-
-            <MainHeaderInfo/>
-        
-        </div>
+            <MainHeader/>
 
         <div className="products-container">
                 {

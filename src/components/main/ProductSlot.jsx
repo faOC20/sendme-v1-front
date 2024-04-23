@@ -2,7 +2,7 @@ import "./products.css"
 
 export const ProductSlot = ({name})=>{
     return(
-            <div className="pokemon-container">
+            <div className="product-container">
         
                 <ul>
                     <li className="pokemon-name">{name.toUpperCase()}</li>
