@@ -10,7 +10,7 @@ export const useProductsStore = create((set)=>{
         products: [],
         fetchProducts: async()=>{
             try{
-                const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=18&offset=0')
+                const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2&offset=0')
                 const {results} = await response.json()
                 console.log(results)
                 set({results, loading:false})
