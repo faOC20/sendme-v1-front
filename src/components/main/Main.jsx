@@ -6,6 +6,8 @@ import { useEffect } from "react"
 import { useProductsStore } from "../../store/products"
 import { ProductSlot } from "./ProductSlot"
 import { MainHeader } from "./mainHeader/MainHeader"
+import { HorizontalCategory } from "./HorizontalCategory"
+import { VerticalCategory } from "./VerticalCategory"
 
 
 export const Main = ()=>{
@@ -33,25 +35,30 @@ export const Main = ()=>{
     
       return (
         <>
-            <MainHeader/>
+          <MainHeader/>
 
-        <div className="products-container">
-                {
-                    results.map((data)=>(
-                        <ProductSlot 
-                                key={data.name}
-                                name={data.name}
-                                
-                            />
-                        ))
-                    
-                }
-
-                
-        </div>
+          <div className="products-grid">
+            <VerticalCategory catName="Gaming"/>
+            <VerticalCategory catName="Salud y belleza"/>          
+            <HorizontalCategory catName="Eléctronica"/>
+            <VerticalCategory catName="Automotriz"/>
+            <HorizontalCategory catName="Hogar y cocina"/>
+            <HorizontalCategory catName="Ropa y accesorios"/>
+          </div>
         </>
        
       )
     }
 
-   
+  /** 
+     {
+        results.map((data)=>(
+            <ProductSlot 
+                    key={data.name}
+                    name={data.name}
+                    
+                />
+            ))
+                    
+      }
+  */
