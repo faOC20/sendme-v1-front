@@ -9,6 +9,7 @@ import { MainHeader } from "./mainHeader/MainHeader"
 import { HorizontalCategory } from "./HorizontalCategory"
 import { VerticalCategory } from "./VerticalCategory"
 import { GamingCategory } from "./mainCategories/GamingCategory"
+import { ElectronicCategory } from "./mainCategories/ElectronicCategory"
 
 
 export const Main = ()=>{
@@ -41,7 +42,7 @@ export const Main = ()=>{
           <div className="products-grid">
             <GamingCategory name='gaming'/>
             <VerticalCategory catName="Salud y belleza"/>          
-            <HorizontalCategory catName="Eléctronica"/>
+            <ElectronicCategory name='Electrónica'/>
             <VerticalCategory catName="Automotriz"/>
             <HorizontalCategory catName="Hogar y cocina"/>
             <HorizontalCategory catName="Ropa y accesorios"/>
