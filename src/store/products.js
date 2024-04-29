@@ -16,6 +16,7 @@ export const useProductsStore = create((set)=>{
         results: [],
         gamingProducts:[],
         electronicProducts:[],
+        healthProducts:[],
         loading: true,
         error: null,
         
@@ -55,6 +56,21 @@ export const useProductsStore = create((set)=>{
                 console.log(data)
                 
                 set({electronicProducts:data.data.products})
+                
+            } catch(error){
+                console.error(error)
+                set({loading:false, error:"Error fetching products"})
+            }
+           
+        },
+
+        fetchHealthProducts: async()=>{
+            try{
+                const response = await fetch(`${url}&query=health`,options)
+                const data = await response.json()
+                console.log(data)
+                
+                set({healthProducts:data.data.products})
                 
             } catch(error){
                 console.error(error)
