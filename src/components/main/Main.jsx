@@ -11,6 +11,9 @@ import { VerticalCategory } from "./VerticalCategory"
 import { GamingCategory } from "./mainCategories/GamingCategory"
 import { ElectronicCategory } from "./mainCategories/ElectronicCategory"
 import { HealthCategory } from "./mainCategories/HealthCategory"
+import { AutomotorCategory } from "./mainCategories/AutomotorCategory"
+import { HomeCategory } from "./mainCategories/HomeCategory"
+import { ClothesCategory } from "./mainCategories/ClothesCategory"
 
 
 export const Main = ()=>{
@@ -44,9 +47,9 @@ export const Main = ()=>{
             <GamingCategory name='Gaming'/>
             <HealthCategory name='Salud y belleza'/>         
             <ElectronicCategory name='Electrónica'/>
-            <VerticalCategory catName="Automotriz"/>
-            <HorizontalCategory catName="Hogar y cocina"/>
-            <HorizontalCategory catName="Ropa y accesorios"/>
+            <AutomotorCategory name='Automotriz'/>
+            <HomeCategory name='Hogar y cocina'/>
+            <ClothesCategory name='Ropa y accesorios'/>
           </div>
         </>
        

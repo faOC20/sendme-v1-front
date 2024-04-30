@@ -2,12 +2,12 @@ import { useProductsStore } from "../../../store/products"
 import { useEffect } from "react"
 import { ProductSlot } from "../ProductSlot"
 
-export const ElectronicCategory = ({name})=>{
-    const {electronicProducts, fetchElectronicProducts, loading, error} = useProductsStore()
+export const ClothesCategory = ({name})=>{
+    const {clothesProducts, fetchClothesProducts, loading, error} = useProductsStore()
 
     useEffect(()=>{
-        fetchElectronicProducts()
-    },[fetchElectronicProducts])
+        fetchClothesProducts()
+    },[fetchClothesProducts])
     
     if (loading) {
         return (
@@ -31,7 +31,7 @@ export const ElectronicCategory = ({name})=>{
       <div className="flex w-full h-full justify-center pb-5 pl-5 pr-5">
           
       {
-          electronicProducts.map((data)=>(
+          clothesProducts.map((data)=>(
             <div className="flex flex-col w-1/3 h-3/4 m-2">
               <ProductSlot 
                     key={data.product_title}
@@ -40,7 +40,7 @@ export const ElectronicCategory = ({name})=>{
                     
                 />
             </div>
-            )).slice(0,3)
+            )).slice(0,6)
         }
 
       </div>
