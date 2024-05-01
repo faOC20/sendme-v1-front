@@ -10,6 +10,7 @@ export const useProductsStore = create((set)=>{
         // 'X-RapidAPI-Key': '9addabb7a7msh486d26bb02f3730p13f249jsn2d2006fa318d',
 		'X-RapidAPI-Host': 'real-time-amazon-data.p.rapidapi.com'
 	}
+    //HOLA
 };
 
     return{
