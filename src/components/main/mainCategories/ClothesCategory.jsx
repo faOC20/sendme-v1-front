@@ -3,16 +3,15 @@ import { useEffect } from "react"
 import { ProductSlot } from "../ProductSlot"
 
 export const ClothesCategory = ({name})=>{
-    const {clothesProducts, fetchClothesProducts, loading, error} = useProductsStore()
+    const {clothesProducts, fetchClothesProducts, loadingClothes, error} = useProductsStore()
 
     useEffect(()=>{
         fetchClothesProducts()
     },[fetchClothesProducts])
     
-    if (loading) {
+    if (loadingClothes) {
         return (
           <>
-            <MainHeader/>
             <div>Cargando...</div>
           </>
         )
@@ -34,7 +33,8 @@ export const ClothesCategory = ({name})=>{
           clothesProducts.map((data)=>(
             <div className="flex flex-col w-1/3 h-3/4 m-2">
               <ProductSlot 
-                    key={data.product_title}
+                    key={data.asin}
+                    id={data.asin}
                     photo={data.product_photo}
                     name={data.product_title}
                     

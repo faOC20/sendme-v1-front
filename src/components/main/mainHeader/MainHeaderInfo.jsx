@@ -19,13 +19,13 @@ export const MainHeaderInfo = ()=>{
                     </li>
                 </div>
 
-                <picture class='absolute w-44 left-56 top-11'>
-                    <img class='object-contain' src={animatedLogo.src} alt="logo sendme cargando paquetes" />
+                <picture className='absolute w-44 left-56 top-11'>
+                    <img className='object-contain' src={animatedLogo.src} alt="logo sendme cargando paquetes" />
                 </picture>
 
                 {
                     bannerInfo.map((info)=>(
-                        <MainInfoCreator title={info.title} description={info.description}/>
+                        <MainInfoCreator key={info.id} title={info.title} description={info.description}/>
                     ))
                 }
             </ul>

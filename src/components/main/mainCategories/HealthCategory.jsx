@@ -3,16 +3,15 @@ import { useEffect } from "react"
 import { ProductSlot } from "../ProductSlot"
 
 export const HealthCategory = ({name})=>{
-    const {healthProducts, fetchHealthProducts, loading, error} = useProductsStore()
+    const {healthProducts, fetchHealthProducts, loadingHealth, error} = useProductsStore()
 
     useEffect(()=>{
         fetchHealthProducts()
     },[fetchHealthProducts])
     
-    if (loading) {
+    if (loadingHealth) {
         return (
           <>
-            <MainHeader/>
             <div>Cargando...</div>
           </>
         )
@@ -32,7 +31,8 @@ export const HealthCategory = ({name})=>{
                 healthProducts.map((data)=>(
                   <div className="flex w-2/4 h-2/4 mb-4">
                     <ProductSlot 
-                          key={data.product_title}
+                          key={data.asin}
+                          id={data.asin}
                           photo={data.product_photo}
                           name={data.product_title}
                       />

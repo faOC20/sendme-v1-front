@@ -6,17 +6,20 @@ import {HEADER_COLOR, MAIN_COLOR, FOOTER_COLOR} from '../assets/constants/colors
 import {Main} from "../components/main/Main"
 import { Footer } from '../components/footer/Footer';
 import { TOPOLOGY } from '../assets/images/topologyBackground';
+import { BrowserRouter } from 'react-router-dom';
 ---
 
 <Layout title="sendme">
 	
-	<header class="header-container text-white z-30">
-		<Header/>
-	</header>
 	
-	<main class="main-container flex flex-col content-center z-10">
-		<Main client:visible/>
-	</main>
+		<header class="header-container text-white z-30">
+			<Header/>
+		</header>
+		
+		<main class="main-container flex flex-col content-center z-10">
+			<Main client:only/>
+		</main>
+	
 	
 	
 </Layout>

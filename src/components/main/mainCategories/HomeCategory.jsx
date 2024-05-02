@@ -1,19 +1,19 @@
 import { useProductsStore } from "../../../store/products"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { ProductSlot } from "../ProductSlot"
+import { MainHeader } from "../mainHeader/MainHeader"
 
 export const HomeCategory = ({name})=>{
-    const {homeProducts, fetchHomeProducts, loading, error} = useProductsStore()
+    const {homeProducts, fetchHomeProducts, loadingHome, error} = useProductsStore()
 
     useEffect(()=>{
         fetchHomeProducts()
     },[fetchHomeProducts])
     
-    if (loading) {
+    if (loadingHome) {
         return (
           <>
-            <MainHeader/>
-            <div>Cargando...</div>
+            <div>Cargssando...</div>
           </>
         )
       }
@@ -34,7 +34,8 @@ export const HomeCategory = ({name})=>{
           homeProducts.map((data)=>(
             <div className="flex flex-col w-1/3 h-3/4 m-2">
               <ProductSlot 
-                    key={data.product_title}
+                    key={data.asin}
+                    id={data.asin}
                     photo={data.product_photo}
                     name={data.product_title}
                     

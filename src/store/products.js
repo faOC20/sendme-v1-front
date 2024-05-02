@@ -7,36 +7,29 @@ export const useProductsStore = create((set)=>{
     const options = {
 	method: 'GET',
 	headers: {
-        // 'X-RapidAPI-Key': '9addabb7a7msh486d26bb02f3730p13f249jsn2d2006fa318d',
+        // 'X-RapidAPI-Key': 'b774369b69mshdd866bc809ffed2p1d1fb0jsn3aa699f86cf3',
 		'X-RapidAPI-Host': 'real-time-amazon-data.p.rapidapi.com'
 	}
-    //HOLA
 };
 
     return{
-        results: [],
+        allProducts: [],
         gamingProducts:[],
         electronicProducts:[],
         healthProducts:[],
         automotorsProducts:[],
         homeProducts:[],
         clothesProducts:[],
+        
         loading: true,
+        loadingGaming:true,
+        loadingElectronic:true,
+        loadingHealth:true,
+        loadingAutomotors:true,
+        loadingHome:true,
+        loadingClothes:true,
         error: null,
         
-        fetchProducts: async()=>{
-            try{
-                const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=2&offset=0')
-                const {results} = await response.json()
-                console.log(results)
-                set({results, loading:false})
-                
-            } catch(error){
-                console.error(error)
-                set({loading:false, error:"Error fetching products"})
-            }
-           
-        },
 
         fetchGamingProducts: async()=>{
             try{
@@ -44,11 +37,11 @@ export const useProductsStore = create((set)=>{
                 const data = await response.json()
                 console.log(data)
                 
-                set({gamingProducts:data.data.products})
+                set({gamingProducts:data.data.products, loadingGaming:false})
                 
             } catch(error){
                 console.error(error)
-                set({loading:false, error:"Error fetching products"})
+                set({loadingGaming:false, error:"Error fetching products"})
             }
            
         },
@@ -57,13 +50,12 @@ export const useProductsStore = create((set)=>{
             try{
                 const response = await fetch(`${url}&query=phone`,options)
                 const data = await response.json()
-                console.log(data)
                 
-                set({electronicProducts:data.data.products})
+                set({electronicProducts:data.data.products, loadingElectronic:false})
                 
             } catch(error){
                 console.error(error)
-                set({loading:false, error:"Error fetching products"})
+                set({loadingElectronic:false, error:"Error fetching products"})
             }
            
         },
@@ -72,13 +64,12 @@ export const useProductsStore = create((set)=>{
             try{
                 const response = await fetch(`${url}&query=health`,options)
                 const data = await response.json()
-                console.log(data)
                 
-                set({healthProducts:data.data.products})
+                set({healthProducts:data.data.products, loadingHealth:false})
                 
             } catch(error){
                 console.error(error)
-                set({loading:false, error:"Error fetching products"})
+                set({loadingHealth:false, error:"Error fetching products"})
             }
            
         },
@@ -87,13 +78,12 @@ export const useProductsStore = create((set)=>{
             try{
                 const response = await fetch(`${url}&query=caraccesories`,options)
                 const data = await response.json()
-                console.log(data)
                 
-                set({automotorsProducts:data.data.products})
+                set({automotorsProducts:data.data.products, loadingAutomotors:false})
                 
             } catch(error){
                 console.error(error)
-                set({loading:false, error:"Error fetching products"})
+                set({loadingAutomotors:false, error:"Error fetching products"})
             }
            
         },
@@ -103,13 +93,12 @@ export const useProductsStore = create((set)=>{
             try{
                 const response = await fetch(`${url}&query=hogar`,options)
                 const data = await response.json()
-                console.log(data)
                 
-                set({homeProducts:data.data.products})
+                set({homeProducts:data.data.products, loadingHome:false})
                 
             } catch(error){
                 console.error(error)
-                set({loading:false, error:"Error fetching products"})
+                set({loadingHome:false, error:"Error fetching products"})
             }
            
         },
@@ -118,16 +107,27 @@ export const useProductsStore = create((set)=>{
             try{
                 const response = await fetch(`${url}&query=clothes`,options)
                 const data = await response.json()
-                console.log(data)
                 
-                set({clothesProducts:data.data.products})
+                set({clothesProducts:data.data.products, loadingClothes:false})
                 
+            } catch(error){
+                console.error(error)
+                set({loadingClothes:false, error:"Error fetching products"})
+            }
+           
+        },
+
+        getClickedProduct: async (id)=>{
+            try{
+                const response = await fetch(`https://real-time-amazon-data.p.rapidapi.com/product-details?asin=${id}&country=US`)
+                const data = await response.json()
+                return data
+
             } catch(error){
                 console.error(error)
                 set({loading:false, error:"Error fetching products"})
             }
-           
-        },
+        }
 
 
 
